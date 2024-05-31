@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="plugins/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header class="site-init">
+        <div class="menu-bar">
+            <h1>The Fashion Pet</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="register.html">Register</a>
+            </nav>
+        </div>
+        <div class="header-info container">
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nulla voluptates modi tenetur esse, voluptatum odio repudiandae laudantium, perferendis dolor nemo illo ipsum possimus nobis officiis corporis hic earum cum.</p>
+            </div>
+            <div>
+                <img src="img/puppy.png" alt="puppy">
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2>Register a new pet</h2>
+        <div>
+            <div class="form-container">
+                <div class="mb-3">
+                    <label class="form-label">Name:*</label>
+                    <input class="form-control" type="text" id="txtName">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Age:</label>
+                    <input class="form-control" type="number" id="txtAge">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Gender:</label>
+                    <input class="form-control" type="text" id="txtGender">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Service:*</label>
+                    <select id="txtService" class="form-select">
+                        <option value="" selected disabled>-- Select an option --</option>
+                        <option value="Grooming">Grooming</option>
+                        <option value="Vaccines">Vaccines</option>
+                    </select>
+                </div>
+                
+                <div class="btn-container">
+                    <button class="btn btn-dark" onclick="register();">Register</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="container">
+        <h2>Register Pets</h2>
+        <div id="info">
+            <p>Total = <span id="total">1000</span></p>
+            <p>Total Groomings = <span id="totalGroomings">1000</span></p>
+        </div>
+        <div id="petDiv">
+
+        </div>
+
+        <table>
+            <thead>
+            </thead>
+            <tbody id="petTable">
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <script src="plugins/jquery3.7.1.js"></script>
+    <script src="plugins/popper.js"></script>
+    <script src="scripts/register.js"></script>
+    <script src="scripts/display.js"></script>
+    <script src="scripts/practice2.js"></script>
+</body>
+</html>

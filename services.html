@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="plugins/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <h2>Register a new pet</h2>
+    <div>
+        <div class="form-container">
+            <div class="mb-3">
+                <label class="form-label">Desciption:</label>
+                <input class="form-control" type="text" id="txtDescription">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price:</label>
+                <input class="form-control" type="number" id="txtPrice">
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn btn-dark" onclick="register();">Register</button>
+        </div>
+        <div>
+            <table>
+                <thead>
+                </thead>
+                <tbody id="petTable">
+                    <tr>
+    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="plugins/jquery3.7.1.js"></script>
+    <script src="plugins/popper.js"></script>
+    <script src="scripts/services.js"></script>
+</body>
+</html>
