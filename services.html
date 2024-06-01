@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="plugins/bootstrap.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
-    <h2>Register a new pet</h2>
-    <div>
-        <div class="form-container">
+    <header class="site-header">
+        <div class="flex-bar container menu">
+            <h1>The Fashion pet</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="register.html">Register</a>
+                <a href="services.html">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container container-main center-all">
+        <h2 class="secundary-text">Register a new service</h2>
+        <div class="container-register">
             <div class="mb-3">
                 <label class="form-label">Desciption:</label>
                 <input class="form-control" type="text" id="txtDescription">
@@ -20,25 +34,26 @@
                 <label class="form-label">Price:</label>
                 <input class="form-control" type="number" id="txtPrice">
             </div>
-        </div>
-        <div class="btn-container">
-            <button class="btn btn-dark" onclick="register();">Register</button>
+            <button class="btn-reg" onclick="register();">Register</button>
+            <div class="hide" id="notifications">Notifications here</div>
         </div>
         <div>
             <table>
                 <thead>
                 </thead>
-                <tbody id="petTable">
+                <tbody id="servicesTable">
                     <tr>
-    
+                        <td>Desciption</td>
+                        <td>Price</td>
+                        <td>Actions</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
+    </main>
 
     <script src="plugins/jquery3.7.1.js"></script>
     <script src="plugins/popper.js"></script>
     <script src="scripts/services.js"></script>
-</body>
-</html>
+    </body>
+    </html>

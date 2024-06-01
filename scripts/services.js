@@ -1,35 +1,102 @@
-function Service(description,price){
-    this.description=description;
-    this.price=price;
+function Service(description, price) {
+    this.id = generateRandomId();
+    this.description = description;
+    this.price = price;
 }
 
-function isValid(service){
+function generateRandomId() {
+    return 'id-' + Math.random().toString(36).substr(2, 9);
+}
+
+function isValid(service) {
     let validation = true;
+    $("#notifications").removeClass("alert-error alert-success");
+    
+    $("input, select").css("border-color", "initial");
     
     if (service.description === "" || service.price === "") {
         validation = false;
-        $("#txtDescription").addClass("alert-error");
-        $("#txtPrice").addClass("alert-error");
+        
+        $("input").each(function() {
+            if ($(this).val() === "") {
+                $(this).css("border-color", "red");
+            }
+        });
+
         setTimeout(function() {
-            $("#txtDescription").removeClass("alert-error");
-            $("#txtPrice").removeClass("alert-error");
-        }, 1000);
-    } else {
-        $("#txtDescription").removeClass("alert-error");
-        $("#txtPrice").removeClass("alert-error");
+            $("input, select").css("border-color", "initial");
+        }, 1500);
     }
+
     return validation;
 }
 
+function removeService(rowId) {
+    $("#" + rowId).remove();
+    removeServiceFromLocalStorage(rowId);
+}
+
+function displayRow(newService) {
+    let table = $("#servicesTable");
+    let serviceHTML = `
+    <tr id="${newService.id}">
+        <td>${newService.description}</td>
+        <td>${newService.price}</td>
+        <td><button class="btn-danger" onclick="removeService('${newService.id}')">Remove</button></td>
+    </tr>
+    `;
+    
+    table.append(serviceHTML);
+    $('html, body').animate({
+        scrollTop: $("#servicesTable").offset().top
+    }, 1000);
+}
+
+function notifications(type, msg) {
+    let div = $("#notifications");
+    div.removeClass("alert-danger alert-success");
+    div.addClass(type);
+    div.text(msg);
+    div.slideDown(800).delay(200).slideUp(800);
+}
 
 function register(){
     let description = $("#txtDescription").val();
     let price = $("#txtPrice").val();
-    let newService = new Service(description,price);
+    let newService = new Service(description, price);
     if(isValid(newService)){
-        console.log("Addng a new service:", newService);
+        displayRow(newService);
+        saveServiceToLocalStorage(newService);
+        notifications("alert-success", "Successful registration");
     }else{
-        console.log("Parameters incomplete:", newService);
+        notifications("alert-error", "Add all the required fields");
     }
-    $("input").val("");
+    $("input, select").val("");
 }
+
+function saveServiceToLocalStorage(service) {
+    let services = JSON.parse(localStorage.getItem('services')) || [];
+    services.push(service);
+    localStorage.setItem('services', JSON.stringify(services));
+}
+
+function removeServiceFromLocalStorage(id) {
+    let services = JSON.parse(localStorage.getItem('services'));
+    services = services.filter(service => service.id !== id);
+    localStorage.setItem('services', JSON.stringify(services));
+}
+
+function loadServicesFromLocalStorage() {
+    let services = JSON.parse(localStorage.getItem('services'));
+    if (services) {
+        services.forEach(service => {
+            displayRow(service);
+        });
+    }
+}
+
+function init() {
+    loadServicesFromLocalStorage();
+}
+
+$(document).ready(init);

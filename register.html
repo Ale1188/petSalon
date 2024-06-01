@@ -4,82 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="plugins/bootstrap.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <header class="site-init">
-        <div class="menu-bar">
-            <h1>The Fashion Pet</h1>
+    <header class="site-header">
+        <div class="flex-bar container menu">
+            <h1>The Fashion pet</h1>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="register.html">Register</a>
+                <a href="services.html">Services</a>
             </nav>
         </div>
-        <div class="header-info container">
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nulla voluptates modi tenetur esse, voluptatum odio repudiandae laudantium, perferendis dolor nemo illo ipsum possimus nobis officiis corporis hic earum cum.</p>
-            </div>
-            <div>
-                <img src="img/puppy.png" alt="puppy">
-            </div>
-        </div>
     </header>
-    <main>
-        <h2>Register a new pet</h2>
-        <div>
-            <div class="form-container">
-                <div class="mb-3">
-                    <label class="form-label">Name:*</label>
-                    <input class="form-control" type="text" id="txtName">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Age:</label>
-                    <input class="form-control" type="number" id="txtAge">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Gender:</label>
-                    <input class="form-control" type="text" id="txtGender">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Service:*</label>
-                    <select id="txtService" class="form-select">
-                        <option value="" selected disabled>-- Select an option --</option>
-                        <option value="Grooming">Grooming</option>
-                        <option value="Vaccines">Vaccines</option>
-                    </select>
-                </div>
-                
-                <div class="btn-container">
-                    <button class="btn btn-dark" onclick="register();">Register</button>
-                </div>
+    <main class="container container-main center-all">
+        <h2 class="secundary-text">Register a new pet</h2>
+        <div class="container-register">
+            <div class="input-control">
+                <label>Name:</label>
+                <input type="text" id="txtName">
+            </div>
+            <div class="input-control">
+                <label>Age:</label>
+                <input type="number" id="txtAge">
+            </div>
+            <div class="input-control">
+                <label>Breed:</label>
+                <input type="text" id="txtBreed">
+            </div>
+            <div class="input-control">
+                <label>Service:</label>
+                <select id="txtService">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Haircut">Haircut</option>
+                    <option value="Wash">Wash</option>
+                    <option value="Vaccination">Vaccination</option>
+                    <option value="Revision">Revision</option>
+                    <option value="Massage">Massage</option>
+                    <option value="Drying">Drying</option>
+                    <option value="Nail trimming">Nail trimming</option>
+                </select>
+            </div>
+            <div class="input-control">
+                <label>Phone: </label>
+                <input type="text" id="txtPhone">
+            </div>
+            <div>
+                <button class="btn-reg" onclick="register();">Register</button>
+                <div class="hide" id="notifications">Notifications here</div>
             </div>
         </div>
+        <section class="container center-all">
+            <h2 class="secundary-text mt-3">Register Pets</h2>
+            <div id="info" class="countService">
+                <p><b>Total = </b><span id="total">0</span></p>
+                <p><b>Total Haircut = </b><span id="totalHaircut">0</span></p>
+                <p><b>Total Wash = </b><span id="totalWash">0</span></p>
+                <p><b>Total Vaccination = </b><span id="totalVaccination">0</span></p>
+                <p><b>Total Revision = </b><span id="totalRevision">0</span></p>
+                <p><b>Total Massage = </b><span id="totalMassage">0</span></p>
+                <p><b>Total Drying = </b><span id="totalDrying">0</span></p>
+                <p><b>Total Nail trimming = </b><span id="totalNail trimming">0</span></p>
+            </div>
+            <div id="petDiv"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Age</td>
+                        <td>Gender</td>
+                        <td>Service</td>
+                        <td>Phone</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody id="petTable">
+                    <tr></tr>
+                </tbody>
+            </table>
+        </section>
     </main>
-    <section class="container">
-        <h2>Register Pets</h2>
-        <div id="info">
-            <p>Total = <span id="total">1000</span></p>
-            <p>Total Groomings = <span id="totalGroomings">1000</span></p>
-        </div>
-        <div id="petDiv">
-
-        </div>
-
-        <table>
-            <thead>
-            </thead>
-            <tbody id="petTable">
-                <tr>
-
-                </tr>
-            </tbody>
-        </table>
-    </section>
+    <footer></footer>
     <script src="plugins/jquery3.7.1.js"></script>
     <script src="plugins/popper.js"></script>
-    <script src="scripts/register.js"></script>
     <script src="scripts/display.js"></script>
-    <script src="scripts/practice2.js"></script>
+    <script src="scripts/register.js"></script>
 </body>
 </html>

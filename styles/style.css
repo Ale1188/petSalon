@@ -1,67 +1,183 @@
-*{
-    margin:0;
-    padding:0;
+/*global*/
+* {
+    margin: 0;
+    padding: 0;
 }
-body{
-    font-family: arial;
+body {
+    font-family: "Titillium Web", sans-serif;
+    background-color: #ffcc00;
 }
-img{
+a {
+    text-decoration: none;
+}
+img {
     max-width: 100%;
 }
-h2{
-    text-align: center;
-}
 /*utilities*/
-.container{
-    width:80%;
-    margin:1rem auto;
+.center-all{
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+.container-register {
+    background-color: #FFFFE0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container-main {
+    background-color: #FFFF99;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.flex-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.main-text {
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+.secundary-text {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.normal-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+.btn-reg{
+    background-color: black;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.btn-danger{
+    background-color:red;
+    border-color: red;
+    color: white;
+    padding: 4px;
+    width: 60px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
 }
 /*header*/
-.site-init{
+.site-header {
     background-color: #ffcc00;
-    height: 50vh;
 }
-.menu-bar{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 10vh;
+.site-header h1 {
+    font-weight: 900;
+    font-size: 80px;
 }
-.header-info{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.menu {
+    margin-bottom: 100px;
+    height: 80px;
 }
-.menu a{
+nav a {
+    font-weight: 300;
     color: black;
-    font-weight: bold;
-    margin-right: 1rem;
-    border-left: 1px solid black;
-    padding-left: 1rem;
+    font-size: 24px;
+    margin-right: 20px;
 }
-.menu a:hover{
-    border-left: 3px solid black;
-    text-shadow: 1px 1px white;
+/*notifications*/
+.hide {
+    display: none;
 }
-/* form */
-.form-container{
-    background-color: #dedede;
-    width: 60%;
-    margin: 1rem auto;
-    border-radius: 1rem;
+.alert-error {
+    color: red;
+    font-size: 14px;
 }
-/* noti */
-.alert-error{
-    background-color: red;
+.alert-success {
+    color: green;
+    font-size: 14px;
 }
-/* petcards */
-#pedDiv{
-    display: grid;
-    grid-template-columns: 33.33%;
-    column-gap: 1rem;
-    row-gap: 1rem;
+/*form*/
+.input-control {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
-.petCard{
-    background-color: #dedede;
-    padding: 1rem;
+.input-control label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin: 3px;
+}
+.input-control input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+select {
+    padding: 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    width: 170px;
+}
+/*table style*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2
+}
+
+tr:nth-child(even) {
+    background-color: #fff755; 
+}
+
+tr:hover {
+    background-color: #cef8c9;
+}
+
+/* count service */
+.countService {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+    font-size: 14px;
+}
+.countService p {
+    background-color: black;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
 }
