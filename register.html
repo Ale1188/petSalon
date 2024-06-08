@@ -39,19 +39,27 @@
             <div class="input-control">
                 <label>Service:</label>
                 <select id="txtService">
-                    <option value="" disabled selected>Select</option>
-                    <option value="Haircut">Haircut</option>
+                    <option value="" disabled selected>-- Select an option --</option>
+                    <!-- <option value="Haircut">Haircut</option>
                     <option value="Wash">Wash</option>
                     <option value="Vaccination">Vaccination</option>
                     <option value="Revision">Revision</option>
                     <option value="Massage">Massage</option>
                     <option value="Drying">Drying</option>
-                    <option value="Nail trimming">Nail trimming</option>
+                    <option value="Nail trimming">Nail trimming</option> -->
                 </select>
             </div>
             <div class="input-control">
                 <label>Phone: </label>
                 <input type="text" id="txtPhone">
+            </div>
+            <div class="input-control">
+                <label>Payment method:</label>
+                <select id="txtPaid">
+                    <option value="" disabled selected>-- Select an option --</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Credit">Credit</option>
+                </select>
             </div>
             <div>
                 <button class="btn-reg" onclick="register();">Register</button>
@@ -62,13 +70,13 @@
             <h2 class="secundary-text mt-3">Register Pets</h2>
             <div id="info" class="countService">
                 <p><b>Total = </b><span id="total">0</span></p>
-                <p><b>Total Haircut = </b><span id="totalHaircut">0</span></p>
+                <!-- <p><b>Total Haircut = </b><span id="totalHaircut">0</span></p>
                 <p><b>Total Wash = </b><span id="totalWash">0</span></p>
                 <p><b>Total Vaccination = </b><span id="totalVaccination">0</span></p>
                 <p><b>Total Revision = </b><span id="totalRevision">0</span></p>
                 <p><b>Total Massage = </b><span id="totalMassage">0</span></p>
                 <p><b>Total Drying = </b><span id="totalDrying">0</span></p>
-                <p><b>Total Nail trimming = </b><span id="totalNail trimming">0</span></p>
+                <p><b>Total Nail trimming = </b><span id="totalNail trimming">0</span></p> -->
             </div>
             <div id="petDiv"></div>
             <table>
@@ -79,6 +87,7 @@
                         <td>Gender</td>
                         <td>Service</td>
                         <td>Phone</td>
+                        <td>Payment</td>
                         <td>Actions</td>
                     </tr>
                 </thead>
@@ -93,5 +102,7 @@
     <script src="plugins/popper.js"></script>
     <script src="scripts/display.js"></script>
     <script src="scripts/register.js"></script>
+    <script src="scripts/storeManager.js"></script>
+    <script src="scripts/callenge.js"></script>
 </body>
 </html>

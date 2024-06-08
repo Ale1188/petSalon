@@ -66,19 +66,20 @@ function register(){
     let newService = new Service(description, price);
     if(isValid(newService)){
         displayRow(newService);
-        saveServiceToLocalStorage(newService);
+        saveItem(newService);
+        // saveServiceToLocalStorage(newService);
         notifications("alert-success", "Successful registration");
+        $("input, select").val("");
     }else{
         notifications("alert-error", "Add all the required fields");
-    }
-    $("input, select").val("");
+    }   
 }
 
-function saveServiceToLocalStorage(service) {
-    let services = JSON.parse(localStorage.getItem('services')) || [];
-    services.push(service);
-    localStorage.setItem('services', JSON.stringify(services));
-}
+// function saveServiceToLocalStorage(service) {
+//     let services = JSON.parse(localStorage.getItem('services')) || [];
+//     services.push(service);
+//     localStorage.setItem('services', JSON.stringify(services));
+// }
 
 function removeServiceFromLocalStorage(id) {
     let services = JSON.parse(localStorage.getItem('services'));

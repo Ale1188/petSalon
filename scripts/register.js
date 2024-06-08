@@ -1,13 +1,14 @@
 var pets = [];
 
 class Pet {
-    constructor(name, age, breed, service, phone) {
+    constructor(name, age, breed, service, phone, paid) {
         this.id = generateRandomId();
         this.name = name;
         this.age = age;
         this.breed = breed;
         this.service = service;
         this.phone = phone;
+        this.paid = paid;
     }
 }
 
@@ -23,7 +24,7 @@ function isValid(pet) {
     
     $("input, select").css("border-color", "initial");
     
-    if (pet.name === "" || pet.age === "" || pet.breed === "" || pet.service === "" || pet.phone === "") {
+    if (pet.name === "" || pet.age === "" || pet.breed === "" || pet.service === "" || pet.phone === "" || pet.paid === "") {
         validation = false;
         
         $("input").each(function() {
@@ -34,6 +35,9 @@ function isValid(pet) {
         
         if ($("#txtService").val() === "") {
             $("#txtService").css("border-color", "red");
+        }
+        if ($("#txtPaid").val() === "") {
+            $("#txtPaid").css("border-color", "red");
         }
 
         setTimeout(function() {
@@ -49,6 +53,14 @@ function isValid(pet) {
             $("#txtService").css("border-color", "initial");
         }, 1500);
     }
+    if ($("#txtPaid").val() === "" || $("#txtPaid").val() === null) {
+        validation = false;
+        $("#txtPaid").css("border-color", "red");
+        
+        setTimeout(function() {
+            $("#txtPaid").css("border-color", "initial");
+        }, 1500);
+    }
 
     return validation;
 }
@@ -59,20 +71,30 @@ function register() {
     var inputBreed = $("#txtBreed").val();
     var inputService = $("#txtService").val();
     var inputPhone = $("#txtPhone").val();
+    var inputPaid = $("#txtPaid").val();
 
-    let newPet = new Pet(inputName, inputAge, inputBreed, inputService, inputPhone);
+    let newPet = new Pet(inputName, inputAge, inputBreed, inputService, inputPhone, inputPaid);
 
     if (isValid(newPet)) {
         savePetToLocalStorage(newPet);
         pets.push(newPet);
         displayRow(newPet);
         displayTotalPets();
-        displayServiceCount();
+        // displayServiceCount();
         notifications("alert-success", "Successful registration");
+        $("input, select").val("");
     } else {
         notifications("alert-error", "Add all the required fields");
     }
-    $("input, select").val("");
+}
+
+function getServices(){
+    let serviceList = readItems();
+    let option = "";
+    for(let i=0;i<serviceList.length;i++){
+        option =  `<option>${serviceList[i].description} -> $${serviceList[i].price}</option>`;
+        $("#txtService").append(option);
+    }
 }
 
 function removePet(id) {
@@ -80,7 +102,7 @@ function removePet(id) {
     pets = pets.filter(pet => pet.id !== id);
     $(`#${id}`).remove();
     displayTotalPets(); 
-    displayServiceCount();
+    // displayServiceCount();
 }
 
 function notifications(type, msg) {
@@ -115,7 +137,8 @@ function loadPetsFromLocalStorage() {
 function init() {
     loadPetsFromLocalStorage();
     displayTotalPets();
-    displayServiceCount();
+    // displayServiceCount();
+    getServices();
 }
 
 $(document).ready(init);
